@@ -1,0 +1,83 @@
+/* ============================================================
+   Certificaciones.css
+   ------------------------------------------------------------
+   Sección con fondo oscuro (azul principal) para destacar las
+   insignias de respaldo, contraste visual con las secciones
+   anteriores de fondo claro.
+   ============================================================ */
+
+.certificaciones-section {
+  background-color: var(--color-azul-principal);
+  padding: 5rem 0;
+}
+
+/* Sobreescribimos el color del título y subtítulo ya que
+   sobre fondo oscuro el azul principal (color por defecto del
+   título) no se vería */
+.titulo-claro {
+  color: var(--color-blanco) !important;
+}
+
+.titulo-claro::after {
+  background-color: var(--color-dorado);
+}
+
+.subtitulo-claro {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.cert-card {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  transition: var(--transicion-suave);
+}
+
+/* Efecto hover: se "levanta" levemente y el fondo se aclara */
+.cert-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-6px);
+  border-color: var(--color-dorado);
+}
+
+.cert-icono {
+  font-size: 2.2rem;
+  color: var(--color-dorado);
+  margin-bottom: 0.8rem;
+  display: block;
+  transition: var(--transicion-suave);
+}
+
+.cert-card:hover .cert-icono {
+  transform: scale(1.15); /* El ícono crece levemente al pasar el mouse */
+}
+
+.cert-nombre {
+  color: var(--color-blanco);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cert-descripcion {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 575px) {
+  .cert-card {
+    padding: 1.2rem 0.6rem;
+  }
+  .cert-nombre {
+    font-size: 0.85rem;
+  }
+  .cert-descripcion {
+    font-size: 0.75rem;
+  }
+}

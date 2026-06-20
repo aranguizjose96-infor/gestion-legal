@@ -1,0 +1,87 @@
+/* ============================================================
+   App.css
+   ------------------------------------------------------------
+   Aquí definimos las VARIABLES CSS GLOBALES (paleta de colores,
+   fuentes, espaciados) que usaremos en TODOS los componentes.
+   Usamos "CSS Custom Properties" (--nombre-variable) para poder
+   reutilizar los mismos colores en cualquier archivo .css del
+   proyecto, simplemente escribiendo var(--nombre-variable).
+   ============================================================ */
+
+:root {
+  /* --- PALETA: Azul + Gris elegante (moderno/minimalista) --- */
+  --color-azul-principal: #1B3A5C;   /* Azul marino profundo: navbar, footer, títulos */
+  --color-azul-acento: #2C6E91;      /* Azul medio: botones, links, hover */
+  --color-azul-claro: #E8F1F7;       /* Azul muy claro: fondos de sección alterna */
+
+  --color-gris-oscuro: #2E2E2E;      /* Texto principal */
+  --color-gris-medio: #6C757D;       /* Texto secundario / descripciones */
+  --color-gris-claro: #F4F6F8;       /* Fondo general de secciones */
+
+  --color-blanco: #FFFFFF;
+  --color-dorado: #C9A24B;           /* Detalle/acento en certificaciones y CTA premium */
+
+  /* --- Tipografía --- */
+  --fuente-titulos: 'Poppins', 'Segoe UI', sans-serif;
+  --fuente-texto: 'Inter', 'Segoe UI', sans-serif;
+
+  /* --- Sombras y transiciones reutilizables --- */
+  --sombra-suave: 0 4px 12px rgba(27, 58, 92, 0.08);
+  --sombra-media: 0 8px 24px rgba(27, 58, 92, 0.15);
+  --transicion-suave: all 0.3s ease-in-out;
+}
+
+/* Reseteo básico: quitamos márgenes por defecto del navegador
+   y aseguramos que todo el sitio use nuestra tipografía base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  color: var(--color-gris-oscuro);
+  background-color: var(--color-blanco);
+  scroll-behavior: smooth; /* Hace que los anclajes (#servicios, #contacto) se desplacen suavemente */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-azul-principal);
+}
+
+/* Clase reutilizable para títulos de cada sección, con una
+   línea decorativa debajo (efecto "moderno/minimalista") */
+.titulo-seccion {
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.titulo-seccion::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-dorado);
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+/* Clase reutilizable de botón principal con transición al hover */
+.btn-principal {
+  background-color: var(--color-azul-acento);
+  border: none;
+  color: var(--color-blanco);
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transicion-suave);
+}
+
+.btn-principal:hover {
+  background-color: var(--color-azul-principal);
+  transform: translateY(-2px); /* Pequeño efecto "flotante" al pasar el mouse */
+  box-shadow: var(--sombra-media);
+}

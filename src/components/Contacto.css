@@ -1,0 +1,78 @@
+/* ============================================================
+   Contacto.css
+   ------------------------------------------------------------
+   Estilos del formulario de contacto y su validación visual.
+   ============================================================ */
+
+.contacto-section {
+  background-color: var(--color-gris-claro);
+  padding: 5rem 0;
+}
+
+.form-contacto {
+  background-color: var(--color-blanco);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--sombra-media);
+}
+
+.form-contacto .form-label {
+  font-weight: 600;
+  color: var(--color-azul-principal);
+  margin-bottom: 0.4rem;
+}
+
+.form-contacto .form-control {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 0.65rem 0.9rem;
+  transition: var(--transicion-suave);
+}
+
+/* Foco normal (campo válido o sin tocar) */
+.form-contacto .form-control:focus {
+  border-color: var(--color-azul-acento);
+  box-shadow: 0 0 0 0.2rem rgba(44, 110, 145, 0.15);
+}
+
+/* Bootstrap agrega automáticamente la clase .is-invalid cuando
+   usamos la prop isInvalid={true}: aquí reforzamos el estilo
+   para que el borde y el mensaje de error se vean claros */
+.form-contacto .form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.form-contacto .invalid-feedback {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Animación sutil cuando aparece un campo inválido (un pequeño
+   "shake" horizontal que llama la atención sin ser molesto) */
+.form-contacto .is-invalid {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Alerta de éxito tras enviar el formulario */
+.alerta-exito {
+  border-radius: 10px;
+  border: none;
+  background-color: #d4f4dd;
+  color: #1e7e34;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 575px) {
+  .form-contacto {
+    padding: 1.5rem;
+  }
+}

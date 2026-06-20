@@ -1,0 +1,102 @@
+/* ============================================================
+   Calculadora.css
+   ------------------------------------------------------------
+   Estilos de la calculadora interactiva. Incluye una pequeña
+   animación de "pulso" cada vez que el resultado cambia, para
+   reforzar visualmente que el cálculo se actualizó.
+   ============================================================ */
+
+.calculadora-section {
+  background-color: var(--color-blanco);
+  padding: 5rem 0;
+}
+
+.card-calculadora {
+  border: none;
+  border-radius: 16px;
+  box-shadow: var(--sombra-media);
+  padding: 1rem;
+}
+
+.label-form {
+  font-weight: 600;
+  color: var(--color-azul-principal);
+  margin-bottom: 0.5rem;
+}
+
+/* Quitamos el glow azul por defecto de Bootstrap y ponemos uno propio */
+.card-calculadora .form-select:focus,
+.card-calculadora .form-control:focus {
+  border-color: var(--color-azul-acento);
+  box-shadow: 0 0 0 0.2rem rgba(44, 110, 145, 0.2);
+}
+
+.checkbox-servicio {
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: var(--transicion-suave);
+}
+
+.checkbox-servicio:hover {
+  background-color: var(--color-azul-claro);
+}
+
+.checkbox-servicio .form-check-input:checked {
+  background-color: var(--color-azul-acento);
+  border-color: var(--color-azul-acento);
+}
+
+/* Caja del resultado final */
+.resultado-calculadora {
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-azul-principal), var(--color-azul-acento));
+  border-radius: 12px;
+  padding: 1.8rem 1rem;
+  color: var(--color-blanco);
+}
+
+.resultado-calculadora span {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.resultado-calculadora small {
+  display: block;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+.monto-total {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-dorado);
+  margin: 0;
+  /* Animación que se reinicia cada vez que el monto cambia
+     (gracias a la prop key={total} en el JSX) */
+  animation: pulso 0.4s ease-out;
+}
+
+@keyframes pulso {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Responsividad --- */
+@media (max-width: 575px) {
+  .monto-total {
+    font-size: 1.8rem;
+  }
+  .card-calculadora {
+    padding: 0.5rem;
+  }
+}

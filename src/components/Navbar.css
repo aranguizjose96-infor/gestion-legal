@@ -1,0 +1,101 @@
+/* ============================================================
+   Navbar.css
+   ------------------------------------------------------------
+   Estilos personalizados de la barra de navegación.
+   Sobreescribimos algunos estilos por defecto de react-bootstrap
+   para lograr el look corporativo (azul + gris elegante).
+   ============================================================ */
+
+.navbar-gestion {
+  /* Al inicio (arriba del todo) la navbar es semi-transparente
+     sobre el Hero, dando un efecto moderno */
+  background-color: rgba(27, 58, 92, 0.85);
+  backdrop-filter: blur(6px); /* Difumina lo que hay detrás, efecto "vidrio" */
+  transition: var(--transicion-suave);
+  padding: 0.8rem 0;
+}
+
+/* Cuando el usuario hace scroll (clase agregada por React),
+   la navbar se vuelve sólida y con sombra, para destacar
+   sobre el contenido que pasa debajo */
+.navbar-scrolled {
+  background-color: var(--color-azul-principal) !important;
+  box-shadow: var(--sombra-media);
+  padding: 0.4rem 0;
+}
+
+/* Logo */
+.brand-logo {
+  color: var(--color-blanco) !important;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  transition: var(--transicion-suave);
+}
+
+.brand-logo:hover {
+  color: var(--color-dorado) !important;
+}
+
+/* Links normales del menú */
+.navbar-gestion .nav-link {
+  color: var(--color-blanco) !important;
+  font-weight: 500;
+  position: relative;
+  margin: 0 0.3rem;
+  transition: var(--transicion-suave);
+}
+
+/* Efecto de subrayado animado al pasar el mouse (hover) */
+.navbar-gestion .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-dorado);
+  transition: var(--transicion-suave);
+}
+
+.navbar-gestion .nav-link:hover::after {
+  width: 100%; /* El subrayado "crece" de izquierda a derecha */
+}
+
+.navbar-gestion .nav-link:hover {
+  color: var(--color-dorado) !important;
+}
+
+/* Botón CTA destacado "Agenda tu Consulta", diferente a los demás links */
+.btn-contacto-nav {
+  background-color: var(--color-dorado) !important;
+  color: var(--color-azul-principal) !important;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem !important;
+  font-weight: 600;
+}
+
+.btn-contacto-nav::after {
+  display: none; /* Quitamos el subrayado animado en este botón especial */
+}
+
+.btn-contacto-nav:hover {
+  background-color: var(--color-blanco) !important;
+  transform: translateY(-2px);
+}
+
+/* Botón hamburguesa: le damos un borde blanco sutil para que
+   se vea bien sobre el fondo azul */
+.navbar-gestion .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-gestion .navbar-toggler-icon {
+  filter: invert(1); /* Invierte el color del ícono a blanco */
+}
+
+/* Como la navbar es "fixed", el contenido de la página queda
+   tapado detrás de ella. Esta clase se usa en el primer elemento
+   del Hero para compensar ese espacio (la usaremos en Hero.css) */
